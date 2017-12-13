@@ -17,7 +17,6 @@ class JobController extends Controller
     public function index(Request $request)
     {
         // massage query
-
         $arr_key = ($request->session()->get('key')) ? $request->session()->get('key') : [];
         $keywords = ($request->key) ? $request->key : '';
 
@@ -39,9 +38,11 @@ class JobController extends Controller
 
         // pass to data
         $data = json_decode($result->getBody()->getContents())->hits->hit;
+
         $suggests = ['Gym', 'Dental'];
 
-        return view('welcome', compact('data', 'keywords' , 'arr_key', 'suggests'));
+
+        return view('welcome', compact('data', 'keywords' , 'arr_key'));
     }
 
     /**

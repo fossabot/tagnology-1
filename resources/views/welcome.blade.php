@@ -46,7 +46,8 @@
                         <div class="col-xs-12">
                             <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
                                 <div class="input-group">
-                                    <input class="form-control no-email" id="search_box_keyword_mobile" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
+                                    <input class="form-control no-email" id="search_box_keyword_mobile" name="key"
+                                           type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
                                     <span class="input-group-btn">
 										<a class="btn btn-default" id="header_searchbox_btn_mobile"
                                            type="button">Search</a>
@@ -169,11 +170,15 @@
                     <div class="search-area">
                         <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
-                                <input class="form-control no-email" id="search_box_keyword" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
+
+                                <input class="form-control no-email" id="search_box_keyword" name="key" type="text"
+                                       placeholder="Search Jobs By Title, Skills or Keywords...">
 
                                 {{--<input class="form-control" name="key" type="text"--}}
-                                       {{--placeholder="Search Jobs By Title, Skills or Keywords...">--}}
-                                <span class="input-group-btn"><a class="btn btn-default" type="button" onclick="document.getElementById('frmSearch').submit();"><span
+                                {{--placeholder="Search Jobs By Title, Skills or Keywords...">--}}
+                                <span class="input-group-btn"><a class="btn btn-default" type="button"
+                                                                 onclick="document.getElementById('frmSearch').submit();"><span
+
                                                 class="icon-search"></span></a></span>
                             </div>
                         </form>
@@ -219,6 +224,9 @@
 
                     @foreach($arr_key as $key)
                         <a type="button" class="btn btn-danger" href="/remove/{{$key}}">{{$key}}  <i class="fa fa-times-circle-o" aria-hidden="true" ></i></a><div class="divider"></div>
+                        <button type="button" class="btn btn-danger">{{$key}} <i class="fa fa-times-circle-o"
+                                                                                 aria-hidden="true"></i></button>
+                        <div class="divider"></div>
                     @endforeach
                 </h1>
                 <style>
@@ -226,6 +234,7 @@
                         width: 5px;
                         height: auto;
                         display: inline-block;
+                        margin-right: -17px;
                     }
 
                 </style>
@@ -245,7 +254,7 @@
                                 <a class="pull-right hidden-xs" href="#"
                                    title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img
                                             src="http://placehold.it/150x150"></a>
-                                <h4 class="card-title"><a href="#"
+                                <h4 class="card-title"><a href="http://jobstreet.com.my/en/job/{{$job->fields->job_id}}"
                                                           title="View job details - Senior Web Development Engineer">{{$job->fields->position_title}}</a>
                                 </h4>
                                 <div class="info no-fig xn">
@@ -261,15 +270,17 @@
                                         "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span
                                             class="text">Around Expected Salary</span></span>
                             </div>
-                            <div >
+
+                            <div>
                                 <ul class="list-inline" style="padding-left: 0px;">
                                     @if(isset($job->fields->tags))
-                                    @foreach($job->fields->tags as $tag)
-                                        <li>
-                                            <h4><span class="label label-danger" href="#">{{$tag}}</span></h4>
-                                        </li>
-                                    @endforeach
-                                        @endif
+                                        @foreach($job->fields->tags as $tag)
+                                            <li>
+                                                <h4><span class="label label-danger" href="#"
+                                                          onclick="add('{{$tag}}');">{{$tag}}</span></h4>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
 
                             </div>
@@ -421,6 +432,7 @@
 <script>
 
     $(document).ready(function () {
+
         //Toggle sub info details
         $(".sub-info-toggle").click(function () {
             var sub_info_parent = $(this).parent();
@@ -433,6 +445,13 @@
         });
 
     });
+
+
+    function add(id) {
+        document.getElementById("search_box_keyword").value = id;
+        document.getElementById("frmSearch").submit();
+    }
+
 </script>
 </body>
 </html>

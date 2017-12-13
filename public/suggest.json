@@ -1,4 +1,8 @@
 {
-  "fruits": ["Apple", "Cherry", "Clementine", "Honeydew melon", "Watermelon", "Satsuma"],
-  "vegetables": ["Pepper", "Jerusalem artichoke", "Green bean", "Fennel", "Courgette", "Yam"]
+  "Benefits": ["Dental", "Medical", "Vision", "Allowance"],
+  "Dress Code": ["Casual", "Formal"],
+  "Working Hours": ["Regular","Shift"],
+  "Spoken Language": ["English","Chinese","Bahasa Malaysia"],
+  "Position Title":["Engineer","Manager","Analyst","Administrator"],
+  "Skills": ["Java", "SQL","test","analysis","sales","Microsoft Office"]
 }
