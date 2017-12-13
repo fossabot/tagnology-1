@@ -13,4 +13,4 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'JobController@index']);
 Route::get('/clear', 'JobController@clear');
-Route::get('/remove/{tag}', 'JobController@remove');
+Route::get('/remove', 'JobController@remove');

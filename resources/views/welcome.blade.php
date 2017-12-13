@@ -44,16 +44,18 @@
                 <div class="navbar-search toggle">
                     <div class="container visible-xs">
                         <div class="col-xs-12">
+                            <div class="search-area">
                             <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
                                 <div class="input-group">
                                     <input class="form-control no-email" id="search_box_keyword_mobile" name="key"
                                            type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
                                     <span class="input-group-btn">
 										<a class="btn btn-default" id="header_searchbox_btn_mobile"
-                                           type="button">Search</a>
+                                           type="button" onclick="document.getElementById('frmSearch_mobile').submit();">Search</a>
 										</span>
                                 </div>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,7 +133,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" style="display: list-item;">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false">
-                            <span class="display-name">Lucas Lee</span>&nbsp;
+                            <span class="display-name">Lay How</span>&nbsp;
                             <span><b class="caret"></b></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -170,13 +172,13 @@
                     <div class="search-area">
                         <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
-
                                 <input class="form-control no-email" id="search_box_keyword" name="key" type="text"
                                        placeholder="Search Jobs By Title, Skills or Keywords...">
 
                                 {{--<input class="form-control" name="key" type="text"--}}
                                 {{--placeholder="Search Jobs By Title, Skills or Keywords...">--}}
-                                <span class="input-group-btn"><a class="btn btn-default" type="button"
+                                <span class="input-group-btn">
+                                    <a class="btn btn-default" type="button"
                                                                  onclick="document.getElementById('frmSearch').submit();"><span
 
                                                 class="icon-search"></span></a></span>
@@ -199,18 +201,6 @@
     </div>
 </div>
 <!--===============================================End of header=============================================================================================-->
-{{--<div class="page-title">--}}
-    {{--<div class="container">--}}
-        {{--<div class="information col-lg-12">--}}
-            {{--<span class="save-job-alert hidden-sm hidden-xs">--}}
-					{{--<a id="save_job_alert" href="#" title="Save as email job alert">--}}
-					{{--<span class="icon-envelope"></span>Save as email job alert--}}
-					{{--</a>--}}
-				{{--</span>--}}
-            {{--<span class="result-count pull-right">1 - 20 of 100 jobs</span>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
 
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-3">
@@ -218,16 +208,23 @@
     </div>
     <div class="col-xs-12 col-md-12">
         <!--======================================Tabs====================================================-->
+        @if($arr_key)
         <div class="panel-tabs text-left">
-            <div class="col-sm-10">
+
+            <div class="col-sm-11 text-center">
+
                 <h1 id="search_desc">
                     
                     @foreach($arr_key as $key)
-                        <a type="button" class="btn btn-info" href="/remove/{{$key}}">{{$key}} <i class="fa fa-times-circle-o"
+                        <a type="button" class="btn btn-info" href="/remove?tag={{$key}}">{{$key}} <i class="fa fa-times-circle-o"
                                                                                  aria-hidden="true"></i></a>
                         <div class="divider"></div>
                     @endforeach
+                    @if($arr_key && sizeof($arr_key) > 1)
+                        <a type="button" class="btn btn-primary" href="/clear">Clear all</a>
+                    @endif
                 </h1>
+
                 <style>
                     .divider {
                         width: 5px;
@@ -238,10 +235,9 @@
 
                 </style>
             </div>
-            <div class="col-sm-2 pull-right">
-                <a type="button" class="btn btn-primary" href="/clear">Clear all</a>
-            </div>
+
         </div>
+    @endif
         <!--======================================End of Tabs====================================================-->
         <div class="tab-content jobs jobs-no-hover">
             <!--Search Result-->
@@ -307,25 +303,8 @@
 										<span class="caret"></span>
                                     </span>
                                     <div class="sub-info-detail collapse" aria-expanded="false">
-                                        <hr>
-                                        <a class="muted hidden-xs" href="#"
-                                           title="IT - Software &gt; Software Engineer/Programmer">IT - Software</a>
-                                        &gt;
-                                        <a class="muted hidden-xs" href="#" title="Software Engineer/Programmer">Software
-                                            Engineer/Programmer</a>
-                                        <div class="industry-info">
-                                            <span class="hidden-xs">Industry:</span>&nbsp;<a class="muted hidden-xs"
-                                                                                             href="#"
-                                                                                             title="IT / Software in Malaysia">IT
-                                                / Software</a>
-                                        </div>
-                                        {{--<div class="tag-info">--}}
-                                        {{--<ul class="list-inline">--}}
-                                        {{--<li><span class="icon-tag"></span></li>--}}
-                                        {{--<li><a class="tag-text" href="#">senior finance</a></li>--}}
-                                        {{--<li><a class="tag-text" href="#">finance manager</a></li>--}}
-                                        {{--</ul>--}}
-                                        {{--</div>--}}
+                                        {!!$job->fields->job_responsibilities!!}
+
                                     </div>
                                 </div>
                             </div>
@@ -368,15 +347,7 @@
     </div><!--End of Second content tab-->
 </div>
 <div class="hidden-xs hidden-sm col-md-2">
-    <span class=""><img src="http://placehold.it/160x600"></span>
-    <div class="clearfix x2">
-        <span class=""></span>
-    </div>
 
-    <div class="hidden-xs hidden-sm col-md-2">
-
-    </div>
-    <span class=""></span>
 </div>
 <a href="javascript:;" class="btn btn-top"><span class="icon-angle-up"></span></a>
 
@@ -400,7 +371,11 @@
         <p class="footer-copyright">Copyright &copy; <span id="year"></span> JobStreet.com</p>
     </div>
 </footer>
-
+<style>
+    .auto-customs{
+        margin-top: 10px;
+    }
+</style>
 <!-- Bootstrap core JavaScript -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -414,7 +389,7 @@
 <script src="/js/jquery.easy-autocomplete.min.js"></script>
 
 <!-- CSS file -->
-<link rel="stylesheet" href="/css/easy-autocomplete.min.css">
+<link rel="stylesheet" href="/css/easy-autocomplete.css">
 
 <!-- Additional CSS Themes file - not required-->
 <link rel="stylesheet" href="/css/easy-autocomplete.themes.min.css">
