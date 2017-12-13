@@ -263,11 +263,13 @@
                             </div>
                             <div >
                                 <ul class="list-inline" style="padding-left: 0px;">
+                                    @if(isset($job->fields->tags))
                                     @foreach($job->fields->tags as $tag)
                                         <li>
                                             <h4><span class="label label-danger" href="#">{{$tag}}</span></h4>
                                         </li>
                                     @endforeach
+                                        @endif
                                 </ul>
 
                             </div>
