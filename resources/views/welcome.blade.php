@@ -170,7 +170,7 @@
                     <div class="search-area">
                         <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
-                                <input class="form-control" name="key" type="text"
+                                <input id="key" class="form-control" name="key" type="text"
                                        placeholder="Search Jobs By Title, Skills or Keywords...">
                                 <span class="input-group-btn"><a class="btn btn-default" type="button"><span
                                                 class="icon-search"></span></a></span>
@@ -765,11 +765,12 @@
                                         "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span
                                             class="text">Around Expected Salary</span></span>
                             </div>
+
                             <div >
                                 <ul class="list-inline" style="padding-left: 0px;">
                                     @foreach($job->fields->tags as $tag)
                                         <li>
-                                            <h4><span class="label label-danger" href="#">{{$tag}}</span></h4>
+                                            <h4><span class="label label-danger" href="#" onclick="add('{{$tag}}');">{{$tag}}</span></h4>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -908,6 +909,14 @@
         });
 
     });
+
+
+    function add(id)
+    {
+        document.getElementById("key").value = id;
+        document.getElementById("frmSearch").submit();
+    }
+
 </script>
 </body>
 </html>
