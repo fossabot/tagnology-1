@@ -171,7 +171,7 @@
                         <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
                                 <input class="form-control" name="key" type="text"
-                                       placeholder="Search Jobs By Title, Skills or Keywords..." value="{{$keywords}}">
+                                       placeholder="Search Jobs By Title, Skills or Keywords...">
                                 <span class="input-group-btn"><a class="btn btn-default" type="button"><span
                                                 class="icon-search"></span></a></span>
                             </div>

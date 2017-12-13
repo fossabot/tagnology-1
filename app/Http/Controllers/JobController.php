@@ -14,14 +14,13 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private  $arr_key = array();
-
     public function index(Request $request)
     {
         // massage query
+        $arr_key = ($request->session()->get('key')) ? $request->session()->get('key') : [];
         $keywords = ($request->key) ? $request->key : '';
-
-        array_push($this->arr_key, $keywords);
+        array_push($arr_key, $keywords);
+        $request->session()->put('key', $arr_key);
 
             //call cloudsearch
         $client = new Client(); //GuzzleHttp\Client
@@ -31,8 +30,6 @@ class JobController extends Controller
         ]);
         // pass to data
         $data = json_decode($result->getBody()->getContents())->hits->hit;
-
-        $arr_key = $this->arr_key;
 
         return view('welcome', compact('data', 'keywords' , 'arr_key'));
     }
