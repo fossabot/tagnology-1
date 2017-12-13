@@ -218,7 +218,7 @@
                 <h1 id="search_desc">
 
                     @foreach($arr_key as $key)
-                        <button type="button" class="btn btn-danger">{{$key}}  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
+                        <a type="button" class="btn btn-danger" href="/remove/{{$key}}">{{$key}}  <i class="fa fa-times-circle-o" aria-hidden="true" ></i></a><div class="divider"></div>
                     @endforeach
                 </h1>
                 <style>

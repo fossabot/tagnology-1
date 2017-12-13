@@ -13,3 +13,4 @@
 
 Route::get('/', 'JobController@index');
 Route::get('/clear', 'JobController@clear');
+Route::get('/remove/{tag}', 'JobController@remove');
