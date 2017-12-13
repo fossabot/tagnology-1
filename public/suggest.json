@@ -1,8 +1,8 @@
 {
   "Benefits": ["Dental", "Medical", "Vision", "Allowance", "Gym"],
   "DressCode": ["Casual", "Formal"],
-  "WorkingHours": ["Regular","Shift"],
+  "WorkingHours": ["Regular","Shift","flexible"],
   "SpokenLanguage": ["English","Chinese","Bahasa Malaysia"],
   "PositionTitle":["Engineer","Manager","Analyst","Administrator"],
-  "Skills": ["Java", "SQL","test","analysis","sales","Microsoft Office"]
+  "Skills": ["Java", "SQL","test","analysis","sales","Microsoft Office", "C++"]
 }
