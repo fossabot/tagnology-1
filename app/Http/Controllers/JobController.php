@@ -19,17 +19,28 @@ class JobController extends Controller
         // massage query
         $arr_key = ($request->session()->get('key')) ? $request->session()->get('key') : [];
         $keywords = ($request->key) ? $request->key : '';
-        array_push($arr_key, $keywords);
-        $request->session()->put('key', $arr_key);
 
             //call cloudsearch
         $client = new Client(); //GuzzleHttp\Client
         // get result
-        $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
-            'query' => ['q' => $keywords]
-        ]);
+        if($keywords) {
+
+            array_push($arr_key, $keywords);
+            $request->session()->put('key', $arr_key);
+            $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
+                'query' => ['q' => $keywords]
+            ]);
+        } else {
+            $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
+                'query' => ['q' => 'matchall' ,'q.parser'=>'structured']
+            ]);
+        }
+
         // pass to data
         $data = json_decode($result->getBody()->getContents())->hits->hit;
+
+        $suggests = ['Gym', 'Dental'];
+
 
         return view('welcome', compact('data', 'keywords' , 'arr_key'));
     }
@@ -42,6 +53,13 @@ class JobController extends Controller
     public function create()
     {
         //
+    }
+
+    public function clear(Request $request)
+    {
+        $request->session()->put('key', '');
+
+        return redirect('/');
     }
 
     /**
