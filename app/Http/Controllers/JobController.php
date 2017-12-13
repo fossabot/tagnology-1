@@ -46,10 +46,8 @@ class JobController extends Controller
         // pass to data
         $data = json_decode($result->getBody()->getContents())->hits->hit;
 
-        $suggests = ['Gym', 'Dental'];
 
-
-        return view('welcome', compact('data', 'keywords', 'arr_key'));
+        return view('welcome', compact('data', 'keywords' , 'arr_key'));
     }
 
     /**

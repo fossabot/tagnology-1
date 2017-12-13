@@ -1,8 +1,8 @@
 {
-  "Benefits": ["Dental", "Medical", "Vision", "Allowance"],
-  "Dress Code": ["Casual", "Formal"],
-  "Working Hours": ["Regular","Shift"],
-  "Spoken Language": ["English","Chinese","Bahasa Malaysia"],
-  "Position Title":["Engineer","Manager","Analyst","Administrator"],
+  "Benefits": ["Dental", "Medical", "Vision", "Allowance", "Gym"],
+  "DressCode": ["Casual", "Formal"],
+  "WorkingHours": ["Regular","Shift"],
+  "SpokenLanguage": ["English","Chinese","Bahasa Malaysia"],
+  "PositionTitle":["Engineer","Manager","Analyst","Administrator"],
   "Skills": ["Java", "SQL","test","analysis","sales","Microsoft Office"]
 }

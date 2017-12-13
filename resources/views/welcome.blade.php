@@ -221,11 +221,10 @@
         <div class="panel-tabs text-left">
             <div class="col-sm-10">
                 <h1 id="search_desc">
-
+                    
                     @foreach($arr_key as $key)
-                        <a type="button" class="btn btn-danger" href="/remove/{{$key}}">{{$key}} <i
-                                    class="fa fa-times-circle-o"
-                                    aria-hidden="true"></i></a>
+                        <a type="button" class="btn btn-info" href="/remove/{{$key}}">{{$key}} <i class="fa fa-times-circle-o"
+                                                                                 aria-hidden="true"></i></a>
                         <div class="divider"></div>
                     @endforeach
                 </h1>
@@ -240,7 +239,7 @@
                 </style>
             </div>
             <div class="col-sm-2 pull-right">
-                <a type="button" class="btn btn-danger" href="/clear">Clear all</a>
+                <a type="button" class="btn btn-primary" href="/clear">Clear all</a>
             </div>
         </div>
         <!--======================================End of Tabs====================================================-->
@@ -424,15 +423,37 @@
         url: "suggest.json",
 
         categories: [
-            {   //Category fruits
-                listLocation: "fruits",
-                header: "-- Fruits --"
+            {
+                listLocation: "Benefits",
+                header: "-- Benefits --"
             },
-            {   //Category vegetables
-                listLocation: "vegetables",
-                header: "-- Vegetables --"
+            {
+                listLocation: "WorkingHours",
+                header: "-- Working Hours --"
+            },
+            {
+                listLocation: "DressCode",
+                header: "-- Dress Code --"
+            },
+            {
+                listLocation: "DressCode",
+                header: "-- Dress Code --"
+            },
+            {
+                listLocation: "Skills",
+                header: "-- Skills --"
+            },
+            {
+                listLocation: "PositionTitle",
+                header: "-- Position Title--"
             }
-        ]
+        ],
+        list: {
+            maxNumberOfElements: 100,
+            match: {
+                enabled: true
+            }
+        }
 
     };
     $("#search_box_keyword_mobile").easyAutocomplete(options);
