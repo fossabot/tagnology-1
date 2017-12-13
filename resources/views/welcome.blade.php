@@ -208,7 +208,7 @@
 
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-3">
-        <!-- <div class="panel panel-basic perpectual perpectual-md-3" data-offset="bottom">
+    <!-- <div class="panel panel-basic perpectual perpectual-md-3" data-offset="bottom">
             <div class="panel-header">
                 <h4 class="hidden-sm hidden-xs">Search Criteria</h4>
                 <h4 aria-controls="collapse_search" aria-expanded="false" class="visible-sm visible-xs collapsed"
@@ -625,8 +625,8 @@
                 </div>
             </div>
         </div> -->
-            <!-- Dynamic Browse Job -->
-       <!-- <div class="panel-group hidden-sm hidden-xs">
+        <!-- Dynamic Browse Job -->
+    <!-- <div class="panel-group hidden-sm hidden-xs">
             <div class="panel panel-basic">
                 <div class="panel-header">
                     <h4>Browse Jobs</h4>
@@ -719,14 +719,18 @@
         <div class="panel-tabs text-left">
             <div class="col-sm-10">
                 <h1 id="search_desc">
-                    <button type="button" class="btn btn-danger">Software Engineer  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
-                    <button type="button" class="btn btn-warning">Dental  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
-                   </h1>
+                    <button type="button" class="btn btn-danger">Software Engineer <i class="fa fa-times-circle-o"
+                                                                                      aria-hidden="true"></i></button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-warning">Dental <i class="fa fa-times-circle-o"
+                                                                            aria-hidden="true"></i></button>
+                    <div class="divider"></div>
+                </h1>
                 <style>
-                    .divider{
-                        width:5px;
-                        height:auto;
-                        display:inline-block;
+                    .divider {
+                        width: 5px;
+                        height: auto;
+                        display: inline-block;
                     }
 
                 </style>
@@ -761,10 +765,15 @@
                                         "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span
                                             class="text">Around Expected Salary</span></span>
                             </div>
-                            <div>
-                                @foreach($job->fields->tags as $tag)
-                                <span class="label label-primary" href="#">{{$tag}}</span>
-                                @endforeach
+                            <div >
+                                <ul class="list-inline" style="padding-left: 0px;">
+                                    @foreach($job->fields->tags as $tag)
+                                        <li>
+                                            <h4><span class="label label-danger" href="#">{{$tag}}</span></h4>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
                             </div>
                             <div class="card-tertiary hidden-xs">
                                 <div class="info no-fig xn">
@@ -849,7 +858,8 @@
 
     <div class="hidden-xs hidden-sm col-md-2">
 
-    </div><span class=""></span>
+    </div>
+    <span class=""></span>
 </div>
 <a href="javascript:;" class="btn btn-top"><span class="icon-angle-up"></span></a>
 
