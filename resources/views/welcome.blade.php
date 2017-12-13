@@ -21,6 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../../ico/touch-icon-iphone6p-ios8.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- End of Favicon -->
+
 </head>
 <body class="body-mobile-align">
 
@@ -45,11 +46,7 @@
                         <div class="col-xs-12">
                             <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
                                 <div class="input-group">
-                                    <select id="keywords_mobile" name="key[]" multiple="multiple">
-                                        @foreach($suggests as $key => $suggest)
-                                            <option value="{{ $key }}">{{ $suggest }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control no-email" id="search_box_keyword_mobile" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
                                     <span class="input-group-btn">
 										<a class="btn btn-default" id="header_searchbox_btn_mobile"
                                            type="button">Search</a>
@@ -172,14 +169,11 @@
                     <div class="search-area">
                         <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
-                                <select id="keywords" name="key[]" multiple="multiple">
-                                    @foreach($suggests as $key => $suggest)
-                                        <option value="{{ $key }}">{{ $suggest }}</option>
-                                    @endforeach
-                                </select>
+                                <input class="form-control no-email" id="search_box_keyword" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
+
                                 {{--<input class="form-control" name="key" type="text"--}}
                                        {{--placeholder="Search Jobs By Title, Skills or Keywords...">--}}
-                                <span class="input-group-btn"><a class="btn btn-default" type="button"><span
+                                <span class="input-group-btn"><a class="btn btn-default" type="button" onclick="document.getElementById('frmSearch').submit();"><span
                                                 class="icon-search"></span></a></span>
                             </div>
                         </form>
@@ -224,9 +218,9 @@
                 <h1 id="search_desc">
 
                     @foreach($arr_key as $key)
-                    <button type="button" class="btn btn-danger">{{$key}}  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
-                        @endforeach
-                   </h1>
+                        <button type="button" class="btn btn-danger">{{$key}}  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
+                    @endforeach
+                </h1>
                 <style>
                     .divider {
                         width: 5px;
@@ -237,6 +231,7 @@
                 </style>
             </div>
             <div class="col-sm-2 pull-right">
+                <a type="button" class="btn btn-danger" href="/clear">Clear all</a>
             </div>
         </div>
         <!--======================================End of Tabs====================================================-->
@@ -387,20 +382,43 @@
 
 <!-- Bootstrap core JavaScript -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery.js"></script>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://dna.jsstatic.com/js/bootstrap.js"></script>
 
 <!-- Plugin -->
 <script src="https://dna.jsstatic.com/select2/select2.js"></script>
 <script src="https://dna.jsstatic.com/js/myjs.js"></script>
+
+<!-- JS file -->
+<script src="/js/jquery.easy-autocomplete.min.js"></script>
+
+<!-- CSS file -->
+<link rel="stylesheet" href="/css/easy-autocomplete.min.css">
+
+<!-- Additional CSS Themes file - not required-->
+<link rel="stylesheet" href="/css/easy-autocomplete.themes.min.css">
+<script>
+    var options = {
+        url: "suggest.json",
+
+        categories: [
+            {   //Category fruits
+                listLocation: "fruits",
+                header: "-- Fruits --"
+            },
+            {   //Category vegetables
+                listLocation: "vegetables",
+                header: "-- Vegetables --"
+            }
+        ]
+
+    };
+    $("#search_box_keyword_mobile").easyAutocomplete(options);
+    $("#search_box_keyword").easyAutocomplete(options);
+</script>
 <script>
 
     $(document).ready(function () {
-        
-        $('#keywords').select2({
-            placeholder : 'Please enter the keywords',
-            tags: true
-        });
         //Toggle sub info details
         $(".sub-info-toggle").click(function () {
             var sub_info_parent = $(this).parent();

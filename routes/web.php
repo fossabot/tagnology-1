@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'JobController@index');
-
+Route::get('/clear', 'JobController@clear');
