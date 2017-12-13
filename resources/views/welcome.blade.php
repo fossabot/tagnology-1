@@ -787,7 +787,7 @@
                                     @if(isset($job->fields->tags))
                                         @foreach($job->fields->tags as $tag)
                                             <li>
-                                                <h4><span class="label label-danger" href="#"
+                                                <h4><span class="label label-primary" href="#"
                                                           onclick="add('{{$tag}}');">{{$tag}}</span></h4>
                                             </li>
                                         @endforeach

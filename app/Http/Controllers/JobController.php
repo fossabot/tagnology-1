@@ -28,7 +28,7 @@ class JobController extends Controller
             array_push($arr_key, $keywords);
             $request->session()->put('key', $arr_key);
             $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
-                'query' => ['q' => $keywords]
+                'query' => ['q' => implode(",", $arr_key)]
             ]);
         } else {
             $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
