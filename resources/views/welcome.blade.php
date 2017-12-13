@@ -46,14 +46,8 @@
                         <div class="col-xs-12">
                             <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
                                 <div class="input-group">
-                                    <<<<<<< HEAD
-                                    <input class="form-control" id="search_box_keyword_mobile" name="key" type="text"
-                                           placeholder="Search Jobs By Title, Skills or Keywords..."
-                                           value="{{$keywords}}">
-                                    =======
                                     <input class="form-control no-email" id="search_box_keyword_mobile" name="key"
                                            type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
-                                    >>>>>>> 2faf821e77007bfecd9c5ce59ce4a2a1ccfd133b
                                     <span class="input-group-btn">
 										<a class="btn btn-default" id="header_searchbox_btn_mobile"
                                            type="button">Search</a>
@@ -776,7 +770,7 @@
                             <div class="card-secondary">
                                 <span class="info no-fig xn job-location"><a href="#"><span
                                                 class="icon-location"></span><span
-                                                class="text">{{$job->fields->work_location_state}}</span></a></span><span
+                                                class="text">{{$job->fields->work_location}}</span></a></span><span
                                         class=
                                         "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span
                                             class="text">Around Expected Salary</span></span>
