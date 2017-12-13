@@ -171,7 +171,7 @@
                         <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
                                 <input class="form-control" name="key" type="text"
-                                       placeholder="Search Jobs By Title, Skills or Keywords..." value="{{$keywords}}">
+                                       placeholder="Search Jobs By Title, Skills or Keywords...">
                                 <span class="input-group-btn"><a class="btn btn-default" type="button"><span
                                                 class="icon-search"></span></a></span>
                             </div>
@@ -208,6 +208,7 @@
 
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-3">
+
     <!-- <div class="panel panel-basic perpectual perpectual-md-3" data-offset="bottom">
             <div class="panel-header">
                 <h4 class="hidden-sm hidden-xs">Search Criteria</h4>
@@ -713,19 +714,18 @@
                 </div>
             </div>
         </div> -->
+
     </div>
     <div class="col-xs-12 col-md-12">
         <!--======================================Tabs====================================================-->
         <div class="panel-tabs text-left">
             <div class="col-sm-10">
                 <h1 id="search_desc">
-                    <button type="button" class="btn btn-danger">Software Engineer <i class="fa fa-times-circle-o"
-                                                                                      aria-hidden="true"></i></button>
-                    <div class="divider"></div>
-                    <button type="button" class="btn btn-warning">Dental <i class="fa fa-times-circle-o"
-                                                                            aria-hidden="true"></i></button>
-                    <div class="divider"></div>
-                </h1>
+
+                    @foreach($arr_key as $key)
+                    <button type="button" class="btn btn-danger">{{$key}}  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
+                        @endforeach
+                   </h1>
                 <style>
                     .divider {
                         width: 5px;

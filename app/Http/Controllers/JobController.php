@@ -13,21 +13,25 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         // massage query
+        $arr_key = ($request->session()->get('key')) ? $request->session()->get('key') : [];
         $keywords = ($request->key) ? $request->key : '';
-        //call cloudsearch
-        $client = new Client(); //GuzzleHttp\Client
+        array_push($arr_key, $keywords);
+        $request->session()->put('key', $arr_key);
 
+            //call cloudsearch
+        $client = new Client(); //GuzzleHttp\Client
+        // get result
         $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
             'query' => ['q' => $keywords]
         ]);
-        // get result
         // pass to data
         $data = json_decode($result->getBody()->getContents())->hits->hit;
 
-        return view('welcome', compact('data', 'keywords'));
+        return view('welcome', compact('data', 'keywords' , 'arr_key'));
     }
 
     /**
