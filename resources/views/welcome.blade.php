@@ -221,7 +221,7 @@
         <div class="panel-tabs text-left">
             <div class="col-sm-10">
                 <h1 id="search_desc">
-
+                    
                     @foreach($arr_key as $key)
                         <a type="button" class="btn btn-info" href="/remove/{{$key}}">{{$key}} <i class="fa fa-times-circle-o"
                                                                                  aria-hidden="true"></i></a>
@@ -251,7 +251,8 @@
                         <div class="panel-body card-body">
                             <div class="card-primary">
                                 <a class="pull-right hidden-xs" href="#"
-                                   title="View all jobs posted by F-Secure Corporation Sdn. Bhd."></a>
+                                   title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img
+                                            src="http://placehold.it/150x150"></a>
                                 <h4 class="card-title"><a href="http://jobstreet.com.my/en/job/{{$job->fields->job_id}}"
                                                           title="View job details - Senior Web Development Engineer">{{$job->fields->position_title}}</a>
                                 </h4>
@@ -263,7 +264,7 @@
                             <div class="card-secondary">
                                 <span class="info no-fig xn job-location"><a href="#"><span
                                                 class="icon-location"></span><span
-                                                class="text">{{$job->fields->work_location_state}}</span></a></span><span
+                                                class="text">{{$job->fields->work_location}}</span></a></span><span
                                         class=
                                         "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span
                                             class="text">Around Expected Salary</span></span>
@@ -275,6 +276,15 @@
                                         @foreach($job->fields->tags as $tag)
                                             <li>
                                                 <h4><span class="label label-primary" href="#"
+                                                          onclick="add('{{$tag}}');">{{$tag}}</span></h4>
+                                            </li>
+                                        @endforeach
+                                    @endif
+
+                                    @if(isset($job->fields->benefits))
+                                        @foreach($job->fields->benefits as $tag)
+                                            <li>
+                                                <h4><span class="label label-default" href="#"
                                                           onclick="add('{{$tag}}');">{{$tag}}</span></h4>
                                             </li>
                                         @endforeach
