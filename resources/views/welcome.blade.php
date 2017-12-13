@@ -41,9 +41,9 @@
                 <div class="navbar-search toggle">
                     <div class="container visible-xs">
                         <div class="col-xs-12">
-                            <form id="frmSearch_mobile" name="frmSearch-mobile" action="http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php" method="get">
+                            <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
                                 <div class="input-group">
-                                    <input class="form-control" id="search_box_keyword_mobile" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
+                                    <input class="form-control" id="search_box_keyword_mobile" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords..." value="{{$keywords}}">
                                     <span class="input-group-btn">
 										<a class="btn btn-default" id="header_searchbox_btn_mobile" type="button">Search</a>
 										</span>
@@ -127,9 +127,9 @@
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-6">
                     <div class="search-area">
-                        <form id="frmSearch" name="frmSearch" action="http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php" method="get">
+                        <form id="frmSearch" name="frmSearch" action="/" method="get">
                             <div class="input-group">
-                                <input class="form-control" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
+                                <input class="form-control" name="key" type="text" placeholder="Search Jobs By Title, Skills or Keywords..." value="{{$keywords}}">
                                 <span class="input-group-btn"><a class="btn btn-default" type="button" ><span class="icon-search"></span></a></span>
                             </div>
                         </form>
@@ -174,7 +174,7 @@
                         <div>
                             <div class="form-group">
                                 <input autocomplete="off" class="form-control" id="key" maxlength="100" name="key" placeholder="Job Title or Keywords ..." title=
-                                "Enter job title, company name, skill, etc" type="text" value="">
+                                "Enter job title, company name, skill, etc" type="text" value="{{$keywords}}">
                             </div>
                             <div class="form-group">
                                 <select id="location" name="location">
@@ -699,17 +699,18 @@
         <div class="tab-content jobs jobs-no-hover">
             <!--Search Result-->
             <div class="tab-pane fade in active">
+                @foreach($data as $job)
                 <div class="panel panel-card">
                     <div class="panel-body card-body">
                         <div class="card-primary">
                             <a class="pull-right hidden-xs" href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img src="http://placehold.it/150x150"></a>
-                            <h4 class="card-title"><a href="#" title="View job details - Senior Web Development Engineer">Senior Web Development Engineer</a></h4>
+                            <h4 class="card-title"><a href="#" title="View job details - Senior Web Development Engineer">{{$job->fields->position_title}}</a></h4>
                             <div class="info no-fig xn">
-                                <a href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><span class="text">F-Secure Corporation Sdn. Bhd.</span></a>
+                                <a href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><span class="text">{{$job->fields->company_name}}</span></a>
                             </div>
                         </div>
                         <div class="card-secondary">
-                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">Kuala Lumpur</span></a></span><span class=
+                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">{{$job->fields->work_location_state}}</span></a></span><span class=
                                                                                                                                                                             "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span class="text">Around Expected Salary</span></span>
                         </div>
                         <div class="card-tertiary hidden-xs">
@@ -745,275 +746,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-card">
-                    <div class="panel-body card-body">
-                        <div class="card-primary">
-                            <a class="pull-right hidden-xs" href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img src="http://placehold.it/150x150"></a>
-                            <h4 class="card-title"><a href="#" title="View job details - Senior Web Development Engineer">Senior Web Development Engineer</a></h4>
-                            <div class="info no-fig xn">
-                                <a href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><span class="text">F-Secure Corporation Sdn. Bhd.</span></a>
-                            </div>
-                        </div>
-                        <div class="card-secondary">
-                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">Kuala Lumpur</span></a></span><span class=
-                                                                                                                                                                            "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span class="text">MYR 2,000 - 2,800</span></span>
-                        </div>
-                        <div class="card-tertiary hidden-xs">
-                            <div class="info no-fig xn">
-									<span class="text">Responsibilities - Generate new ways of thinking about all aspects of website/portal development by using cutting edge technologies
-									to create that wow effect.</span>
-                            </div>
-                        </div>
-                        <div class="sub-info">
-                            <span>15 minutes ago</span>
-                            <div class="sub-info-expand hidden-xs">
-                                &nbsp;&bull;&nbsp;
-                                <span class="sub-info-toggle" role="button">
-										<span class="text">more</span>
-										<span class="caret"></span>
-                                    </span>
-                                <div class="sub-info-detail collapse" aria-expanded="false">
-                                    <hr>
-                                    <a class="muted hidden-xs" href="#" title="IT - Software &gt; Software Engineer/Programmer">IT - Software</a> &gt;
-                                    <a class="muted hidden-xs" href="#" title="Software Engineer/Programmer">Software Engineer/Programmer</a>
-                                    <div class="industry-info">
-                                        <span class="hidden-xs">Industry:</span>&nbsp;<a class="muted hidden-xs" href="#" title="IT / Software in Malaysia">IT / Software</a>
-                                    </div>
-                                    <div class="tag-info">
-                                        <ul class="list-inline">
-                                            <li><span class="icon-tag"></span></li>
-                                            <li><a class="tag-text" href="#">senior finance</a></li>
-                                            <li><a class="tag-text" href="#">finance manager</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-card standout">
-                    <div class="panel-body card-body">
-                        <div class="card-primary">
-                            <a class="pull-right hidden-xs" href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img src="http://placehold.it/150x150"></a>
-                            <h4 class="card-title"><a href="#" title="View job details - Software Engineer">Software Engineer</a></h4>
-                            <div class="info no-fig xn">
-                                <a href="#" title="View all jobs posted by Manulife Technology & Services Sdn Bhd"><span class="text">Manulife Technology & Services Sdn
-									Bhd</span></a>
-                            </div>
-                        </div>
-                        <div class="card-secondary">
-                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">Kuala Lumpur</span></a></span><span class=
-                                                                                                                                                                            "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span class="text">MYR 2,500 - 2,900</span></span>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-7">
-                                <ul>
-                                    <li>Flexi working hour</li>
-                                    <li>Opportunity to work with multi-national teams</li>
-                                    <li>Variety of software development technologies and training will be provided</li>
-                                </ul>
-                                <div class="card-tertiary hidden-xs">
-                                    <div class="info no-fig xn">
-											<span class="text">Candidate must possess at least a Bachelor's Degree, Post Graduate Diploma, Professional Degree, Engineering (Mechanical) or
-											equivalent. At least...</span>
-                                    </div>
-                                </div>
-                                <div class="sub-info">
-                                    <span>55 minutes ago</span>
-                                    <div class="sub-info-expand hidden-xs">
-                                        &nbsp;&bull;&nbsp;
-                                        <span class="sub-info-toggle" role="button">
-												<span class="text">more</span>
-												<span class="caret"></span>
-		                                    </span>
-                                        <div class="sub-info-detail collapse" aria-expanded="false">
-                                            <hr>
-                                            <a class="muted hidden-xs" href="#" title="IT - Software &gt; Software Engineer/Programmer">IT - Software</a> &gt;
-                                            <a class="muted hidden-xs" href="#" title="Software Engineer/Programmer">Software Engineer/Programmer</a>
-                                            <div class="industry-info">
-                                                <span class="hidden-xs">Industry:</span>&nbsp;<a class="muted hidden-xs" href="#" title="IT / Software in Malaysia">IT / Software</a>
-                                            </div>
-                                            <div class="tag-info">
-                                                <ul class="list-inline">
-                                                    <li><span class="icon-tag"></span></li>
-                                                    <li><a class="tag-text" href="#">senior finance</a></li>
-                                                    <li><a class="tag-text" href="#">finance manager</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-5"><img class="pic" src="http://placehold.it/300x225"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-card">
-                    <div class="panel-body card-body">
-                        <div class="card-primary">
-                            <a class="pull-right hidden-xs" href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img src="http://placehold.it/150x150"></a>
-                            <h4 class="card-title"><a href="#" title="View job details - Senior Web Development Engineer">Senior Web Development Engineer</a></h4>
-                            <div class="info no-fig xn">
-                                <a href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><span class="text">F-Secure Corporation Sdn. Bhd.</span></a>
-                            </div>
-                        </div>
-                        <div class="card-secondary">
-                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">Kuala Lumpur</span></a></span><span class=
-                                                                                                                                                                            "info no-fig xn normal-salary"><span class="icon-dollar-sign"></span><span class="text">Below Expected Salary</span></span>
-                        </div>
-                        <div class="card-tertiary hidden-xs">
-                            <div class="info no-fig xn">
-									<span class="text">Responsibilities - Generate new ways of thinking about all aspects of website/portal development by using cutting edge technologies
-									to create that wow effect.</span>
-                            </div>
-                        </div>
-                        <div class="sub-info">
-                            <span>4 hours ago</span>
-                            <div class="sub-info-expand hidden-xs">
-                                &nbsp;&bull;&nbsp;
-                                <span class="sub-info-toggle" role="button">
-										<span class="text">more</span>
-										<span class="caret"></span>
-                                    </span>
-                                <div class="sub-info-detail collapse" aria-expanded="false">
-                                    <hr>
-                                    <a class="muted hidden-xs" href="#" title="IT - Software &gt; Software Engineer/Programmer">IT - Software</a> &gt;
-                                    <a class="muted hidden-xs" href="#" title="Software Engineer/Programmer">Software Engineer/Programmer</a>
-                                    <div class="industry-info">
-                                        <span class="hidden-xs">Industry:</span>&nbsp;<a class="muted hidden-xs" href="#" title="IT / Software in Malaysia">IT / Software</a>
-                                    </div>
-                                    <div class="tag-info">
-                                        <ul class="list-inline">
-                                            <li><span class="icon-tag"></span></li>
-                                            <li><a class="tag-text" href="#">senior finance</a></li>
-                                            <li><a class="tag-text" href="#">finance manager</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-card standout">
-                    <div class="panel-body card-body">
-                        <div class="card-primary">
-                            <a class="pull-right hidden-xs" href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img src="http://placehold.it/150x150"></a>
-                            <h4 class="card-title"><a href="#" title="View job details - Software Engineer">Software Engineer</a></h4>
-                            <div class="info no-fig xn">
-                                <a href="#" title="View all jobs posted by Manulife Technology & Services Sdn Bhd"><span class="text">Manulife Technology & Services Sdn
-									Bhd</span></a>
-                            </div>
-                        </div>
-                        <div class="card-secondary">
-                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">Kuala Lumpur</span></a></span><span class=
-                                                                                                                                                                            "info no-fig xn expected-salary"><span class="icon-dollar-sign"></span><span class="text">Around Expected Salary</span></span>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-7">
-                                <ul>
-                                    <li>Flexi working hour</li>
-                                    <li>Opportunity to work with multi-national teams</li>
-                                    <li>Variety of software development technologies and training will be provided</li>
-                                </ul>
-                                <div class="card-tertiary hidden-xs">
-                                    <div class="info no-fig xn">
-											<span class="text">Candidate must possess at least a Bachelor's Degree, Post Graduate Diploma, Professional Degree, Engineering (Mechanical) or
-											equivalent. At least...</span>
-                                    </div>
-                                </div>
-                                <div class="sub-info">
-                                    <span>5 hours ago</span>
-                                    <div class="sub-info-expand hidden-xs">
-                                        &nbsp;&bull;&nbsp;
-                                        <span class="sub-info-toggle" role="button">
-												<span class="text">more</span>
-												<span class="caret"></span>
-		                                    </span>
-                                        <div class="sub-info-detail collapse" aria-expanded="false">
-                                            <hr>
-                                            <a class="muted hidden-xs" href="#" title="IT - Software &gt; Software Engineer/Programmer">IT - Software</a> &gt;
-                                            <a class="muted hidden-xs" href="#" title="Software Engineer/Programmer">Software Engineer/Programmer</a>
-                                            <div class="industry-info">
-                                                <span class="hidden-xs">Industry:</span>&nbsp;<a class="muted hidden-xs" href="#" title="IT / Software in Malaysia">IT / Software</a>
-                                            </div>
-                                            <div class="tag-info">
-                                                <ul class="list-inline">
-                                                    <li><span class="icon-tag"></span></li>
-                                                    <li><a class="tag-text" href="#">senior finance</a></li>
-                                                    <li><a class="tag-text" href="#">finance manager</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-5"><img class="pic" src="http://placehold.it/300x225"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-card">
-                    <div class="panel-body card-body">
-                        <div class="card-primary">
-                            <a class="pull-right hidden-xs" href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img src="http://placehold.it/150x150"></a>
-                            <h4 class="card-title"><a href="#" title="View job details - Senior Web Development Engineer">Senior Web Development Engineer</a></h4>
-                            <div class="info no-fig xn">
-                                <a href="#" title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><span class="text">F-Secure Corporation Sdn. Bhd.</span></a>
-                            </div>
-                        </div>
-                        <div class="card-secondary">
-                            <span class="info no-fig xn job-location"><a href="#"><span class="icon-location"></span><span class="text">Kuala Lumpur</span></a></span><span class=
-                                                                                                                                                                            "info no-fig xn normal-salary"><span class="icon-dollar-sign"></span><span class="text">Below Expected Salary</span></span>
-                        </div>
-                        <div class="card-tertiary hidden-xs">
-                            <div class="info no-fig xn">
-									<span class="text">Responsibilities - Generate new ways of thinking about all aspects of website/portal development by using cutting edge technologies
-									to create that wow effect.</span>
-                            </div>
-                        </div>
-                        <div class="sub-info">
-                            <span>Yesterday</span>
-                            <div class="sub-info-expand hidden-xs">
-                                &nbsp;&bull;&nbsp;
-                                <span class="sub-info-toggle" role="button">
-										<span class="text">more</span>
-										<span class="caret"></span>
-                                    </span>
-                                <div class="sub-info-detail collapse" aria-expanded="false">
-                                    <hr>
-                                    <a class="muted hidden-xs" href="#" title="IT - Software &gt; Software Engineer/Programmer">IT - Software</a> &gt;
-                                    <a class="muted hidden-xs" href="#" title="Software Engineer/Programmer">Software Engineer/Programmer</a>
-                                    <div class="industry-info">
-                                        <span class="hidden-xs">Industry:</span>&nbsp;<a class="muted hidden-xs" href="#" title="IT / Software in Malaysia">IT / Software</a>
-                                    </div>
-                                    <div class="tag-info">
-                                        <ul class="list-inline">
-                                            <li><span class="icon-tag"></span></li>
-                                            <li><a class="tag-text" href="#">senior finance</a></li>
-                                            <li><a class="tag-text" href="#">finance manager</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-card">
-                    <div class="panel-body related-searches">
-                        <h2>Related searches</h2>
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                                <p><a href=#>senior <span>web development</span> engineer</a></p>
-                                <p><a href=#>senior <span>web</span> engineer</a></p>
-                                <p><a href=#>software engineer</a></p>
-                                <p><a href=#><span>web</span> developer</a></p>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <p><a href=#>php <span>development</span></a></p>
-                                <p><a href=#><span>web</span> software engineer</a></p>
-                                <p><a href=#>ASP.NET <span>web development</span></a></p>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
                 <div class="panel">
                     <div class="panel-body text-center">

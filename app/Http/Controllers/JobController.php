@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class JobController extends Controller
 {
@@ -11,12 +13,21 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $data = [];
+        // massage query
+        $keywords = $request->key;
+        //call cloudsearch
+        $client = new Client(); //GuzzleHttp\Client
 
-        return view('welcome', compact('data'));
+        $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
+            'query' => ['q' => $keywords]
+        ]);
+        // get result
+        // pass to data
+        $data = json_decode($result->getBody()->getContents())->hits->hit;
+
+        return view('welcome', compact('data', 'keywords'));
     }
 
     /**
