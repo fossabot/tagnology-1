@@ -749,7 +749,7 @@
                                 <a class="pull-right hidden-xs" href="#"
                                    title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img
                                             src="http://placehold.it/150x150"></a>
-                                <h4 class="card-title"><a href="#"
+                                <h4 class="card-title"><a href="http://jobstreet.com.my/en/job/{{$job->fields->job_id}}"
                                                           title="View job details - Senior Web Development Engineer">{{$job->fields->position_title}}</a>
                                 </h4>
                                 <div class="info no-fig xn">
