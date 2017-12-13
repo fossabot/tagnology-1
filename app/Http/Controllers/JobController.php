@@ -16,7 +16,7 @@ class JobController extends Controller
     public function index(Request $request)
     {
         // massage query
-        $keywords = $request->key;
+        $keywords = ($request->key) ? $request->key : '';
         //call cloudsearch
         $client = new Client(); //GuzzleHttp\Client
 

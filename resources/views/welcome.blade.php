@@ -150,11 +150,11 @@
     <div class="container">
         <div class="information col-lg-12">
             <h1 class="search-desc"><b>Audit & Taxation jobs</b></h1>
-            <span class="save-job-alert hidden-sm hidden-xs">
-					<a id="save_job_alert" href="#" title="Save as email job alert">
-					<span class="icon-envelope"></span>Save as email job alert
-					</a>
-				</span>
+            {{--<span class="save-job-alert hidden-sm hidden-xs">--}}
+					{{--<a id="save_job_alert" href="#" title="Save as email job alert">--}}
+					{{--<span class="icon-envelope"></span>Save as email job alert--}}
+					{{--</a>--}}
+				{{--</span>--}}
             <span class="result-count pull-right">1 - 20 of 100 jobs</span>
         </div>
     </div>
@@ -162,7 +162,7 @@
 
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-3">
-        <div class="panel panel-basic perpectual perpectual-md-3" data-offset="bottom">
+        <!-- <div class="panel panel-basic perpectual perpectual-md-3" data-offset="bottom">
             <div class="panel-header">
                 <h4 class="hidden-sm hidden-xs">Search Criteria</h4>
                 <h4 aria-controls="collapse_search" aria-expanded="false" class="visible-sm visible-xs collapsed" data-toggle="collapse">Search Criteria<span class=
@@ -574,8 +574,9 @@
                     </form>
                 </div>
             </div>
-        </div><!-- Dynamic Browse Job -->
-        <div class="panel-group hidden-sm hidden-xs">
+        </div> -->
+            <!-- Dynamic Browse Job -->
+       <!-- <div class="panel-group hidden-sm hidden-xs">
             <div class="panel panel-basic">
                 <div class="panel-header">
                     <h4>Browse Jobs</h4>
@@ -648,9 +649,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-    <div class="col-xs-12 col-md-7">
+    <div class="col-xs-12 col-md-12">
         <!--======================================Tabs====================================================-->
         <div class="panel-tabs text-left hidden-xs">
             <div class="col-sm-10">
