@@ -221,10 +221,11 @@
         <div class="panel-tabs text-left">
             <div class="col-sm-10">
                 <h1 id="search_desc">
-                    
+
                     @foreach($arr_key as $key)
-                        <a type="button" class="btn btn-danger" href="/remove/{{$key}}">{{$key}} <i class="fa fa-times-circle-o"
-                                                                                 aria-hidden="true"></i></a>
+                        <a type="button" class="btn btn-danger" href="/remove/{{$key}}">{{$key}} <i
+                                    class="fa fa-times-circle-o"
+                                    aria-hidden="true"></i></a>
                         <div class="divider"></div>
                     @endforeach
                 </h1>
@@ -276,6 +277,15 @@
                                         @foreach($job->fields->tags as $tag)
                                             <li>
                                                 <h4><span class="label label-primary" href="#"
+                                                          onclick="add('{{$tag}}');">{{$tag}}</span></h4>
+                                            </li>
+                                        @endforeach
+                                    @endif
+
+                                    @if(isset($job->fields->benefits))
+                                        @foreach($job->fields->benefits as $tag)
+                                            <li>
+                                                <h4><span class="label label-default" href="#"
                                                           onclick="add('{{$tag}}');">{{$tag}}</span></h4>
                                             </li>
                                         @endforeach
