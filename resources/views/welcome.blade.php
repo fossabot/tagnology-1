@@ -19,6 +19,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="../../ico/touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="152x152" href="../../ico/touch-icon-ipad-retina.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../../ico/touch-icon-iphone6p-ios8.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- End of Favicon -->
 </head>
 <body class="body-mobile-align">
@@ -149,12 +150,11 @@
 <div class="page-title">
     <div class="container">
         <div class="information col-lg-12">
-            <h1 class="search-desc"><b>Audit & Taxation jobs</b></h1>
-            {{--<span class="save-job-alert hidden-sm hidden-xs">--}}
-					{{--<a id="save_job_alert" href="#" title="Save as email job alert">--}}
-					{{--<span class="icon-envelope"></span>Save as email job alert--}}
-					{{--</a>--}}
-				{{--</span>--}}
+            <span class="save-job-alert hidden-sm hidden-xs">
+					<a id="save_job_alert" href="#" title="Save as email job alert">
+					<span class="icon-envelope"></span>Save as email job alert
+					</a>
+				</span>
             <span class="result-count pull-right">1 - 20 of 100 jobs</span>
         </div>
     </div>
@@ -653,48 +653,22 @@
     </div>
     <div class="col-xs-12 col-md-12">
         <!--======================================Tabs====================================================-->
-        <div class="panel-tabs text-left hidden-xs">
+        <div class="panel-tabs text-left">
             <div class="col-sm-10">
-                <ul class="nav nav-tabs nav-line">
-                    <li class="active">
-                        <a data-toggle="tab" href="#">All Jobs</a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#">Direct Employers</a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#">Recruitment Firms</a>
-                    </li>
-                </ul>
-                <div class="pull-right">
-                    <a href=
-                       "http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php?area=1&amp;option=1&amp;job-source=1%2C64&amp;classified=1&amp;job-posted=0&amp;src=46&amp;pg=1&amp;sort=1&amp;order=1&amp;srcr=1"
-                       rel="nofollow" title="Change sort order"><span class="icon-alpha-desc"></span></a>
-                </div>
+                <h1 id="search_desc">
+                    <button type="button" class="btn btn-danger">Software Engineer  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
+                    <button type="button" class="btn btn-warning">Dental  <i class="fa fa-times-circle-o" aria-hidden="true"></i></button><div class="divider"></div>
+                   </h1>
+                <style>
+                    .divider{
+                        width:5px;
+                        height:auto;
+                        display:inline-block;
+                    }
+
+                </style>
             </div>
             <div class="col-sm-2 pull-right">
-                <select class="form-control" id="sort_result" onchange="window.location=this.value">
-                    <option selected="selected" value=
-                    "http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php?area=1&amp;option=1&amp;job-source=1%2C64&amp;classified=1&amp;job-posted=0&amp;src=46&amp;pg=1&amp;sort=1&amp;order=1&amp;srcr=1">
-                        Date
-                    </option>
-                    <option value=
-                            "http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php?area=1&amp;option=1&amp;job-source=1%2C64&amp;classified=1&amp;job-posted=0&amp;src=46&amp;pg=1&amp;sort=3&amp;order=1&amp;srcr=1">
-                        Job Title
-                    </option>
-                    <option value=
-                            "http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php?area=1&amp;option=1&amp;job-source=1%2C64&amp;classified=1&amp;job-posted=0&amp;src=46&amp;pg=1&amp;sort=4&amp;order=1&amp;srcr=1">
-                        Company
-                    </option>
-                    <option value=
-                            "http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php?area=1&amp;option=1&amp;job-source=1%2C64&amp;classified=1&amp;job-posted=0&amp;src=46&amp;pg=1&amp;sort=6&amp;order=0&amp;srcr=1">
-                        Salary
-                    </option>
-                    <option value=
-                            "http://job-search-dev.jobstreet.com.my/malaysia/job-opening.php?area=1&amp;option=1&amp;job-source=1%2C64&amp;classified=1&amp;job-posted=0&amp;src=46&amp;pg=1&amp;sort=7&amp;order=1&amp;srcr=1">
-                        Location
-                    </option>
-                </select>
             </div>
         </div><!--======================================End of Tabs====================================================-->
         <div class="tab-content jobs jobs-no-hover">
@@ -784,10 +758,7 @@
         </div><!--End of Second content tab-->
     </div>
     <div class="hidden-xs hidden-sm col-md-2">
-        <span class=""><img src="http://placehold.it/160x600"></span>
-        <div class="clearfix x2">
-            <span class=""></span>
-        </div><span class=""><img src="http://placehold.it/160x600"></span>
+
     </div><span class=""></span>
 </div>
 <a href="javascript:;" class="btn btn-top"><span class="icon-angle-up"></span></a>
