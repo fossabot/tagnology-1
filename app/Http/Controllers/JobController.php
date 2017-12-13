@@ -20,24 +20,32 @@ class JobController extends Controller
         $arr_key = ($request->session()->get('key')) ? $request->session()->get('key') : [];
         $keywords = ($request->key) ? $request->key : '';
 
-            //call cloudsearch
+        //call cloudsearch
         $client = new Client(); //GuzzleHttp\Client
         // get result
-        if($keywords) {
+        if ($keywords) {
 
-            array_push($arr_key, $keywords);
+            if (!in_array($keywords, $arr_key)) {
+                array_push($arr_key, $keywords);
+            }
+            
             $request->session()->put('key', $arr_key);
-            $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
-                'query' => ['q' => implode(",", $arr_key)]
-            ]);
+            $result = $client->request('GET',
+                'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?',
+                [
+                    'query' => ['q' => implode(",", $arr_key)]
+                ]);
         } else {
-            $result = $client->request('GET', 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?', [
-                'query' => ['q' => 'matchall' ,'q.parser'=>'structured']
-            ]);
+            $result = $client->request('GET',
+                'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?',
+                [
+                    'query' => ['q' => 'matchall', 'q.parser' => 'structured']
+                ]);
         }
 
         // pass to data
         $data = json_decode($result->getBody()->getContents())->hits->hit;
+
 
         return view('welcome', compact('data', 'keywords' , 'arr_key'));
     }
@@ -72,11 +80,10 @@ class JobController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -87,7 +94,7 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -98,7 +105,7 @@ class JobController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -109,8 +116,8 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -121,7 +128,7 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

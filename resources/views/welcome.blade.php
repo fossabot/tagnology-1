@@ -27,7 +27,7 @@
 
 <!--=====================================================Header========================================================================-->
 <div class="mobile-navbar-fixed-top">
-    <div class="navbar navbar-inverse navbar-static">
+    <div class="navbar navbar-inverse navbar-static" style="margin-bottom: 5px;">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-canvas="body"
@@ -199,18 +199,18 @@
     </div>
 </div>
 <!--===============================================End of header=============================================================================================-->
-<div class="page-title">
-    <div class="container">
-        <div class="information col-lg-12">
-            <span class="save-job-alert hidden-sm hidden-xs">
-					<a id="save_job_alert" href="#" title="Save as email job alert">
-					<span class="icon-envelope"></span>Save as email job alert
-					</a>
-				</span>
-            <span class="result-count pull-right">1 - 20 of 100 jobs</span>
-        </div>
-    </div>
-</div>
+{{--<div class="page-title">--}}
+    {{--<div class="container">--}}
+        {{--<div class="information col-lg-12">--}}
+            {{--<span class="save-job-alert hidden-sm hidden-xs">--}}
+					{{--<a id="save_job_alert" href="#" title="Save as email job alert">--}}
+					{{--<span class="icon-envelope"></span>Save as email job alert--}}
+					{{--</a>--}}
+				{{--</span>--}}
+            {{--<span class="result-count pull-right">1 - 20 of 100 jobs</span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-3">
