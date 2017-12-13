@@ -62,6 +62,20 @@ class JobController extends Controller
         return redirect('/');
     }
 
+    public function remove($tag, Request $request)
+    {
+        //
+
+        $arr_key = $request->session()->get('key');
+
+        $index = array_search($tag, $arr_key);
+        unset($arr_key[$index]);
+        $request->session()->put('key', $arr_key);
+        return redirect('/');
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *
