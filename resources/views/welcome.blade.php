@@ -214,7 +214,7 @@
             <div class="panel-tabs text-left">
                 <div class="panel-body">
                     <div class="col-sm-2 text-left">
-                        <h4>Current Apply Filter:</h4>
+                        <h4>Applied Filters:</h4>
                     </div>
                 <div class="col-sm-10 text-left">
                     <h1 id="search_desc">
