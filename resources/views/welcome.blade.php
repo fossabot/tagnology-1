@@ -45,16 +45,17 @@
                     <div class="container visible-xs">
                         <div class="col-xs-12">
                             <div class="search-area">
-                            <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
-                                <div class="input-group">
-                                    <input class="form-control no-email" id="search_box_keyword_mobile" name="key"
-                                           type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
-                                    <span class="input-group-btn">
+                                <form id="frmSearch_mobile" name="frmSearch-mobile" action="/" method="get">
+                                    <div class="input-group">
+                                        <input class="form-control no-email" id="search_box_keyword_mobile" name="key"
+                                               type="text" placeholder="Search Jobs By Title, Skills or Keywords...">
+                                        <span class="input-group-btn">
 										<a class="btn btn-default" id="header_searchbox_btn_mobile"
-                                           type="button" onclick="document.getElementById('frmSearch_mobile').submit();">Search</a>
+                                           type="button"
+                                           onclick="document.getElementById('frmSearch_mobile').submit();">Search</a>
 										</span>
-                                </div>
-                            </form>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -179,7 +180,7 @@
                                 {{--placeholder="Search Jobs By Title, Skills or Keywords...">--}}
                                 <span class="input-group-btn">
                                     <a class="btn btn-default" type="button"
-                                                                 onclick="document.getElementById('frmSearch').submit();"><span
+                                       onclick="document.getElementById('frmSearch').submit();"><span
 
                                                 class="icon-search"></span></a></span>
                             </div>
@@ -209,36 +210,37 @@
     <div class="col-xs-12 col-md-12">
         <!--======================================Tabs====================================================-->
         @if($arr_key)
-        <div class="panel-tabs text-left">
+            <div class="panel-tabs text-left">
 
-            <div class="col-sm-11 text-center">
+                <div class="col-sm-11 text-center">
 
-                <h1 id="search_desc">
-                    
-                    @foreach($arr_key as $key)
-                        <a type="button" class="btn btn-secondary" href="/remove?tag={{$key}}">{{$key}} <i class="fa fa-times-circle-o"
-                                                                                 aria-hidden="true"></i></a>
-                        <div class="divider"></div>
-                    @endforeach
-                    @if($arr_key && sizeof($arr_key) > 1)
-                        <a type="button" class="btn btn-primary" href="/clear">Clear all</a>
-                    @endif
-                </h1>
+                    <h1 id="search_desc">
 
-                <style>
-                    .divider {
-                        width: 5px;
-                        height: auto;
-                        display: inline-block;
-                        margin-right: -17px;
-                    }
+                        @foreach($arr_key as $key)
+                            <a type="button" class="btn btn-secondary" href="/remove?tag={{$key}}">{{$key}} <i
+                                        class="fa fa-times-circle-o"
+                                        aria-hidden="true"></i></a>
+                            <div class="divider"></div>
+                        @endforeach
+                        @if($arr_key && sizeof($arr_key) > 1)
+                            <a type="button" class="btn btn-primary" href="/clear">Clear all</a>
+                        @endif
+                    </h1>
 
-                </style>
+                    <style>
+                        .divider {
+                            width: 5px;
+                            height: auto;
+                            display: inline-block;
+                            margin-right: -17px;
+                        }
+
+                    </style>
+                </div>
+
             </div>
-
-        </div>
     @endif
-        <!--======================================End of Tabs====================================================-->
+    <!--======================================End of Tabs====================================================-->
         <div class="tab-content jobs jobs-no-hover">
             <!--Search Result-->
             <div class="tab-pane fade in active">
@@ -247,8 +249,9 @@
                         <div class="panel-body card-body">
                             <div class="card-primary">
                                 <a class="pull-right hidden-xs" href="#"
-                                   title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img height="150" width="150"
-                                            src="http://placehold.it/150x150"></a>
+                                   title="View all jobs posted by F-Secure Corporation Sdn. Bhd."><img height="150"
+                                                                                                       width="150"
+                                                                                                       src="http://placehold.it/150x150"></a>
                                 <h4 class="card-title"><a href="http://jobstreet.com.my/en/job/{{$job->fields->job_id}}"
                                                           title="View job details - Senior Web Development Engineer">{{$job->fields->position_title}}</a>
                                 </h4>
@@ -280,29 +283,39 @@
                                     @if(isset($job->fields->benefits))
                                         @foreach($job->fields->benefits as $tag)
                                             <li>
-                                                <h4><span class="label label-default" href="#"
-                                                          onclick="add('{{$tag}}');">{{$tag}}</span></h4>
+                                                @if($tag === "Others (Please specify)")
+                                                    <h4><span class="label label-default" href="#"
+                                                              onclick="add('{{$tag}}');">Other benefits</span></h4>
+                                                @else
+                                                    <h4><span class="label label-default" href="#"
+                                                              onclick="add('{{$tag}}');">{{$tag}}</span></h4>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                    @if(isset($job->fields->spoken_language))
+                                        @foreach($job->fields->spoken_language as $tag)
+                                            <li>
+                                                @if($tag === "Spanish")
+                                                    <h4><span class="label label-warning" href="#"
+                                                              onclick="add('{{$tag}}');">Chinese</span></h4>
+                                                @else
+                                                    <h4><span class="label label-warning" href="#"
+                                                              onclick="add('{{$tag}}');">{{$tag}}</span></h4>
+                                                @endif
                                             </li>
                                         @endforeach
                                     @endif
 
-                                        @if(isset($job->fields->spoken_language))
-                                            @foreach($job->fields->spoken_language as $tag)
-                                                <li>
-                                                    <h4><span class="label label-warning" href="#"
-                                                              onclick="add('{{$tag}}');">{{$tag}}</span></h4>
-                                                </li>
-                                            @endforeach
-                                        @endif
+                                    @if(isset($job->fields->company_size))
 
-                                        @if(isset($job->fields->company_size))
+                                        <li>
+                                            <h4><span class="label label-info" href="#"
+                                                      onclick="add('{{$job->fields->company_size}}');">{{$job->fields->company_size}}</span>
+                                            </h4>
+                                        </li>
 
-                                                <li>
-                                                    <h4><span class="label label-info" href="#"
-                                                              onclick="add('{{$job->fields->company_size}}');">{{$job->fields->company_size}}</span></h4>
-                                                </li>
-
-                                        @endif
+                                    @endif
                                 </ul>
                                 </ul>
 
@@ -391,7 +404,7 @@
     </div>
 </footer>
 <style>
-    .auto-customs{
+    .auto-customs {
         margin-top: 10px;
     }
 </style>
