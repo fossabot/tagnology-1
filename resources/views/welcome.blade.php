@@ -311,7 +311,7 @@
                                     @if(isset($job->fields->company_size))
 
                                         <li>
-                                            <h4><span class="label label-info" href="#"
+                                            <h4><span class="label label-info hasTooltip-company" href="#"
                                                       onclick="add('{{$job->fields->company_size}}');">{{$job->fields->company_size}}</span>
                                             </h4>
                                         </li>
@@ -434,35 +434,35 @@
         categories: [
             {
                 listLocation: "Benefits",
-                header: "-- Benefits --"
+                header: "<u>Benefits</u>"
             },
             {
                 listLocation: "WorkingHours",
-                header: "-- Working Hours --"
+                header: "<u>Working Hours </u>"
             },
             {
                 listLocation: "DressCode",
-                header: "-- Dress Code --"
+                header: "<u> Dress Code </u>"
             },
             {
                 listLocation: "SpokenLanguage",
-                header: "-- Spoken Language --"
+                header: "<u> Spoken Language </u>"
             },
             {
                 listLocation: "Skills",
-                header: "-- Skills --"
+                header: "<u> Skills </u>"
             },
             {
                 listLocation: "PositionTitle",
-                header: "-- Position Title--"
+                header: "<u> Position Title </u>"
             },
             {
                 listLocation: "Industry",
-                header: "-- Industry --"
+                header: "<u> Industry </u>"
             },
             {
                 listLocation: "Location",
-                header: "-- Location --"
+                header: "<u> Location</u>"
             },
         ],
         list: {
@@ -483,6 +483,11 @@
     $('.hasTooltip-benefits').qtip({ // Grab some elements to apply the tooltip to
         content: {
             text: 'Benefits'
+        }
+    })
+    $('.hasTooltip-company').qtip({ // Grab some elements to apply the tooltip to
+        content: {
+            text: 'Company Size'
         }
     })
 </script>
