@@ -213,10 +213,10 @@
         @if($arr_key)
             <div class="panel-tabs text-left">
                 <div class="panel-body">
-                    <div class="col-sm-11 text-center">
-                        Current Apply Filter:
+                    <div class="col-sm-2 text-left">
+                        <h4>Current Apply Filter:</h4>
                     </div>
-                <div class="col-sm-11 text-left">
+                <div class="col-sm-10 text-left">
                     <h1 id="search_desc">
                         @foreach($arr_key as $key)
                             <a type="button" class="btn btn-secondary" href="/remove?tag={{$key}}">{{$key}} <i
