@@ -3,6 +3,8 @@
   "DressCode": ["Casual", "Formal"],
   "WorkingHours": ["Regular","Shift","flexible"],
   "SpokenLanguage": ["English","Chinese","Bahasa Malaysia"],
-  "PositionTitle":["Engineer","Manager","Analyst","Administrator"],
-  "Skills": ["Java", "SQL","test","analysis","sales","Microsoft Office", "C++"]
+  "PositionTitle":["Engineer","Manager","Analyst","Administrator","Senior Software Engineer","Software Engineer","QA Engineer","Relationship Manager","Architect","Sales"],
+  "Skills": ["Java", "SQL","test","analysis","sales","Microsoft Office","ERP","PHP","Javascript","kaizen"],
+  "Location": ["Kuala Lumpur","Selangor","Johor","Kedah","Penang","Pahang","Sabah","Sarawak","Kelantan","Terengganu"],
+  "Industry": ["Construction","Engineering","Computer","Information Technology", "Banking","Financial Services","Apparel","Electrical","Electronics","Manufacturing"]
 }

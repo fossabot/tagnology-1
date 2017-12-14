@@ -443,8 +443,8 @@
                 header: "-- Dress Code --"
             },
             {
-                listLocation: "DressCode",
-                header: "-- Dress Code --"
+                listLocation: "SpokenLanguage",
+                header: "-- Spoken Language --"
             },
             {
                 listLocation: "Skills",
@@ -453,7 +453,15 @@
             {
                 listLocation: "PositionTitle",
                 header: "-- Position Title--"
-            }
+            },
+            {
+                listLocation: "Industry",
+                header: "-- Industry --"
+            },
+            {
+                listLocation: "Location",
+                header: "-- Location --"
+            },
         ],
         list: {
             maxNumberOfElements: 100,
