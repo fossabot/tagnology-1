@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://dna.jsstatic.com/myjs/myjs-1.3.0.css">
     <link rel="stylesheet" href="https://dna.jsstatic.com/select2/select2.css">
     <link rel="stylesheet" href="https://dna.jsstatic.com/pi/icon-font/2.3/icon-font.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.css" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../ico/favicon.png">
@@ -284,10 +285,10 @@
                                         @foreach($job->fields->benefits as $tag)
                                             <li>
                                                 @if($tag === "Others (Please specify)")
-                                                    <h4><span class="label label-default" href="#"
+                                                    <h4><span class="label label-default hasTooltip-benefits" href="#"
                                                               onclick="add('{{$tag}}');">Other benefits</span></h4>
                                                 @else
-                                                    <h4><span class="label label-default" href="#"
+                                                    <h4><span class="label label-default hasTooltip-benefits" href="#"
                                                               onclick="add('{{$tag}}');">{{$tag}}</span></h4>
                                                 @endif
                                             </li>
@@ -300,7 +301,7 @@
                                                     <h4><span class="label label-warning" href="#"
                                                               onclick="add('{{$tag}}');">Chinese</span></h4>
                                                 @else
-                                                    <h4><span class="label label-warning" href="#"
+                                                    <h4><span class="label label-warning hasTooltip-language" href="#"
                                                               onclick="add('{{$tag}}');">{{$tag}}</span></h4>
                                                 @endif
                                             </li>
@@ -410,8 +411,9 @@
 </style>
 <!-- Bootstrap core JavaScript -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://dna.jsstatic.com/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
 
 <!-- Plugin -->
 <script src="https://dna.jsstatic.com/select2/select2.js"></script>
@@ -473,6 +475,16 @@
     };
     $("#search_box_keyword_mobile").easyAutocomplete(options);
     $("#search_box_keyword").easyAutocomplete(options);
+    $('.hasTooltip-language').qtip({ // Grab some elements to apply the tooltip to
+        content: {
+            text: 'Language'
+        }
+    });
+    $('.hasTooltip-benefits').qtip({ // Grab some elements to apply the tooltip to
+        content: {
+            text: 'Benefits'
+        }
+    })
 </script>
 <script>
 
