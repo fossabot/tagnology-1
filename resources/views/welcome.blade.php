@@ -214,9 +214,9 @@
             <div class="panel-tabs text-left">
                 <div class="panel-body">
                     <div class="col-sm-11 text-center">
-                        Current Apply Filter: 
+                        Current Apply Filter:
                     </div>
-                <div class="col-sm-11 text-center">
+                <div class="col-sm-11 text-left">
                     <h1 id="search_desc">
                         @foreach($arr_key as $key)
                             <a type="button" class="btn btn-secondary" href="/remove?tag={{$key}}">{{$key}} <i
