@@ -22,18 +22,20 @@ class JobController extends Controller
 
         //call cloudsearch
         $client = new Client(); //GuzzleHttp\Client
-        // get result
-        if ($keywords) {
 
+        if ($keywords) {
             if (!in_array($keywords, $arr_key)) {
                 array_push($arr_key, $keywords);
             }
-            
+        }
+
+        // get result
+        if ($arr_key) {
             $request->session()->put('key', $arr_key);
             $result = $client->request('GET',
                 'http://search-tagnology-jobs-dxyvozvy5yf53gbqqwvbwrpc44.ap-southeast-1.cloudsearch.amazonaws.com/2013-01-01/search?',
                 [
-                    'query' => ['q' => implode(",", $arr_key)]
+                    'query' => ['q' => implode(" ", $arr_key)]
                 ]);
         } else {
             $result = $client->request('GET',
